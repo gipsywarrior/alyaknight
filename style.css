@@ -1,0 +1,185 @@
+/* 
+  Definición de las fuentes. 
+  Coloca los archivos 'OldNewspaperTypes.ttf' y 'OldEnglishTextMT.ttf' en la misma carpeta del proyecto.
+  Ajusta el nombre del archivo si tienen extensiones .otf u otras.
+*/
+@font-face {
+    font-family: 'OldNewspaperTypes';
+    src: url('OldNewspaperTypes.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Old English Text MT';
+    src: url('OldEnglishTextMT.ttf') format('truetype');
+}
+
+/* Variables de color de absolutos solicitadas */
+:root {
+    --blanco-absoluto: #ffffff;
+    --negro-absoluto: #000000;
+}
+
+body {
+    /* Fondo ligeramente gris oscuro para que la caja principal de negro absoluto pueda resaltar */
+    background-color: #111111; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 40px 20px;
+    /* Todo el texto debe ser blanco y la fuente principal es OldNewspaperTypes */
+    color: var(--blanco-absoluto);
+    font-family: 'OldNewspaperTypes', serif;
+}
+
+/* Caja principal */
+.main-container {
+    background-color: var(--negro-absoluto);
+    width: 730px;
+    padding: 50px;
+    box-sizing: border-box; /* Asegura que los 730px incluyan el padding */
+    display: flex;
+    flex-direction: column;
+    gap: 40px; /* Separación entre el primer, segundo y tercer elemento general */
+    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.9); /* Sombra para darle un aspecto premium al marco */
+}
+
+/* ==== Primer Elemento (Box con columnar flex) ==== */
+.header-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centrado para un look de periódico antiguo o ficha elegante */
+    text-align: center;
+}
+
+.header-box h1 {
+    font-family: 'Old English Text MT', serif;
+    font-size: 4.5rem;
+    margin: 0;
+    line-height: 1;
+    font-weight: normal;
+}
+
+.header-box h2 {
+    font-size: 1.8rem;
+    margin: 10px 0 0 0;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    font-weight: normal;
+}
+
+/* ==== Segundo Elemento (Espacio para imagen principal) ==== */
+.image-placeholder {
+    background-color: #1a1a1a; /* Gris muy oscuro para diferenciar el slot */
+    border: 1px dashed #444; /* Borde guíado */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #888;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+
+.main-image {
+    width: 100%;
+    height: 350px; /* Altura sugerida temporal para la imagen grande */
+}
+
+/* ==== Tercer Elemento (Flex horizontal) ==== */
+.content-box {
+    display: flex;
+    flex-direction: row;
+    gap: 40px; /* Separación entre la columna izquierda y derecha */
+    align-items: stretch; /* Ambas columnas toman la misma altura (determinada por la más alta, la izquierda) */
+}
+
+/* Configuración general de las dos columnas divididas en ancho equitativo */
+.left-column, .right-column {
+    flex: 1 1 50%;
+    width: 50%;
+}
+
+/* -- Columna Izquierda -- */
+.left-column {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    text-align: justify;
+}
+
+.left-column p {
+    margin-top: 0;
+    margin-bottom: 1.5em;
+}
+
+.left-column p:last-child {
+    margin-bottom: 0;
+}
+
+/* -- Columna Derecha -- */
+.right-column {
+    display: flex;
+    flex-direction: column;
+    /* Distribuye elementos según el alto de la caja, desde arriba hacia abajo */
+    justify-content: space-between; 
+}
+
+/* Elemento Derecha 1: Caja Clave Valor */
+.key-value-box {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.kv-item {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end; /* Alinea los textos en la base (base-line) para mayor prolijidad */
+    width: 100%;
+}
+
+.kv-item .key {
+    white-space: nowrap; /* Ancho determinado por la palabra de la clave */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.95rem;
+}
+
+/* Decoración opcional para enlazar clave y valor al estilo diseño visual estricto */
+.kv-item .line-filler {
+    flex-grow: 1;
+    border-bottom: 1px solid #444; /* Línea separadora sutil que mejora la lectura */
+    margin: 0 10px 5px 10px;
+}
+
+.kv-item .value {
+    text-align: right;
+    font-style: italic;
+    font-size: 1.1rem;
+}
+
+/* Elemento Derecha 2: Imagen Secundaria */
+.secondary-image {
+    width: 100%;
+    height: 180px; /* Modifica este alto según la imagen final */
+    margin: 20px 0; /* Separación natural interior en caso space-between falle por contenido muy corto en la izq */
+}
+
+/* Elemento Derecha 3: Caja flex 4 items con bullets */
+.attributes-box {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1.5px;
+    padding-top: 10px;
+    border-top: 1px solid #333; /* Línea estética superior opcional */
+}
+
+.attributes-box .bullet {
+    color: #666; /* Bullet oscuro visible pero no protagonista */
+    font-size: 1.2rem;
+}
