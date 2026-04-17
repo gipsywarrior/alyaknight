@@ -79,6 +79,19 @@ body {
     align-items: center;
 }
 
+.image-wrapper {
+    position: relative;
+    display: inline-block; /* Esto hace que el wrapper tenga exactamente el mismo tamaño que "mirror.png" */
+}
+
+.bunny-overlay {
+    position: absolute;
+    bottom: -20px;
+    left: -100px;
+    z-index: 10;
+    mix-blend-mode: lighten;
+}
+
 /* ==== Tercer Elemento (Flex horizontal) ==== */
 .content-box {
     display: flex;
@@ -182,14 +195,14 @@ body {
 /* ==== Quinto Elemento (Bitácora) ==== */
 .bitacora-box {
     border: 1px solid var(--primary);
-    padding: 22px;
+    padding-inline: 40px;
 }
 
 .tabs-container {
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
-    margin-bottom: 20px;
+    justify-content: space-around;
+    margin-block: 25px;
 }
 
 .tab-btn {
@@ -210,6 +223,10 @@ body {
     font-size: 15px;
     line-height: 1.6;
     text-align: justify;
+    height: 230px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-top: 10px
 }
 
 .tab-content.active {
@@ -245,10 +262,6 @@ body {
     font-family: 'OldNewspaperTypes', serif;
 }
 
-.rasgos-list li {
-
-}
-
 /* ==== Estilos de Contenido de Capacidades ==== */
 .capacidades-title {
     margin-top: 25px;
@@ -268,4 +281,24 @@ body {
 
 .capacidades-list li {
     margin-bottom: 2px;
+}
+
+/* ==== Estilos Globales de Scrollbar ==== */
+/* Chrome, Edge, Safari */
+::-webkit-scrollbar {
+    width: 0px!important;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary);
+}
+
+/* Firefox */
+* {
+    scrollbar-width: thin; /* Firefox no soporta px exactos, 'thin' es lo más cercado y nativo */
+    scrollbar-color: var(--primary) transparent;
 }

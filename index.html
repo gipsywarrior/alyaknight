@@ -16,7 +16,10 @@
 
         <!-- Segundo elemento -->
         <div class="main-image-container">
-            <img src="images/mirror.png" alt="Mirror">
+            <div class="image-wrapper">
+                <img src="images/mirror.png" alt="Mirror">
+                <img src="images/bunny.png" alt="Bunny" class="bunny-overlay">
+            </div>
         </div>
 
         <!-- Tercer elemento -->
@@ -34,13 +37,13 @@
                     <div class="kv-item"><span class="key">GÉNERO</span><span class="value">Femenino</span></div>
                     <div class="kv-item"><span class="key">RAZA</span><span class="value">Bruja</span></div>
                     <div class="kv-item"><span class="key">EDAD</span><span class="value">11 años</span></div>
-                    <div class="kv-item"><span class="key">RANGO</span><span class="value">Rango I</span></div>
-                    <div class="kv-item"><span class="key">NIVEL</span><span class="value">Nivel 10</span></div>
+                    <div class="kv-item"><span class="key">RANGO</span><span class="value" id="val-rango">Rango I</span></div>
+                    <div class="kv-item"><span class="key">NIVEL</span><span class="value" id="val-nivel">Nivel 10</span></div>
                     <div class="kv-item"><span class="key">CASA</span><span class="value">Slytherin</span></div>
                     <div class="kv-item"><span class="key">GRUPO</span><span class="value">Indefinido</span></div>
-                    <div class="kv-item"><span class="key">EXPERIENCIA</span><span class="value">0 / 0 / 0</span></div>
-                    <div class="kv-item"><span class="key">GALEONES</span><span class="value">0 / 0 / 0</span></div>
-                    <div class="kv-item"><span class="key">LLAVES</span><span class="value">0 / 0 / 0</span></div>
+                    <div class="kv-item"><span class="key">EXPERIENCIA</span><span class="value" id="val-exp">0 / 0 / 0</span></div>
+                    <div class="kv-item"><span class="key">GALEONES</span><span class="value" id="val-galeones">0 / 0 / 0</span></div>
+                    <div class="kv-item"><span class="key">LLAVES</span><span class="value" id="val-llaves">0 / 0 / 0</span></div>
                 </div>
 
                 <!-- 2. Imagen secundaria -->
@@ -50,13 +53,13 @@
 
                 <!-- 3. Caja de atributos -->
                 <div class="attributes-box">
-                    <span class="attribute">400 VIT</span>
+                    <span class="attribute" id="val-vit">400 VIT</span>
                     <span class="bullet">&bull;</span>
-                    <span class="attribute">40 PM</span>
+                    <span class="attribute" id="val-pm">40 PM</span>
                     <span class="bullet">&bull;</span>
-                    <span class="attribute">4 VEL</span>
+                    <span class="attribute" id="val-vel">4 VEL</span>
                     <span class="bullet">&bull;</span>
-                    <span class="attribute">1 VOL</span>
+                    <span class="attribute" id="val-vol">1 VOL</span>
                 </div>
             </div>
         </div>
@@ -133,6 +136,7 @@
                 </ul>
 
                 <h3 class="rasgos-title capacidades-title">Conocimiento</h3>
+                <div class="capacidades-subtitle">Total: <span id="val-conocimiento">0</span></div>
                 <div class="capacidades-subtitle">— Asignaturas Troncales:</div>
                 <ul class="capacidades-list">
                     <li>Astronomía: 0</li>
@@ -170,7 +174,7 @@
                 </ul>
             </div>
             <div class="tab-content" id="historial">
-                <p>Contenido pendiente para Historial.</p>
+                <p style="text-align: center; opacity: 0.5;"><em>Cargando...</em></p>
             </div>
         </div>
 
