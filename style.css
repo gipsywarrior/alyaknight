@@ -20,22 +20,29 @@
 
 :root {
     --primary: #ffffff;
-    --base: #000000;
+    --base: #0a0c14;
 }
 
 ::selection {
-    background: rgb(65, 65, 65)
+    background: #414141
 }
 
 body {
-    background-color: #16181e;
+    background-color: #9195ab;
     color: var(--primary);
     font-family: 'OldNewspaperTypes', serif;
     margin: 0
 }
 
 img {
-    pointer-events: none
+    pointer-events: none;
+}
+
+.main-image-container,
+.secondary-image-container,
+.fourth-element-container,
+.bitacora-box {
+    mix-blend-mode: plus-lighter;
 }
 
 img::selection {
@@ -44,7 +51,7 @@ img::selection {
 
 .main-container {
     background-color: var(--base);
-    border: 1px solid rgb(43, 43, 43);
+    border: 1px solid #272a3b;
     width: 730px;
     padding: 50px;
     box-sizing: border-box;
@@ -54,7 +61,7 @@ img::selection {
     gap: 30px;
 
     position: relative;
-    mix-blend-mode: luminosity;
+    mix-blend-mode: darken;
 }
 
 .main-container::before {
