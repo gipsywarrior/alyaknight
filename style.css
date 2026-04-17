@@ -20,11 +20,11 @@
 
 :root {
     --primary: #9fa4c2;
-    --base: #10162b;
+    --base: #0d111e;
 }
 
 ::selection {
-    background: #414141
+    background: #1b233b
 }
 
 body {
