@@ -64,7 +64,7 @@ function renderDynamicData(data) {
             if(h.llaves !== 0) eParts.push(`${h.llaves > 0 ? '+'+h.llaves : h.llaves} ${Math.abs(h.llaves) === 1 ? 'Llave' : 'Llaves'}`);
 
             let statsStr = eParts.length > 0 ? ` (${eParts.join(', ')})` : '';
-            let fechaStr = h.fecha ? h.fecha + '. ' : '';
+            let fechaStr = h.fecha ? `<span style="letter-spacing: 1px; font-weight: bold;">${h.fecha}.</span> ` : '';
             let descStr = h.link ? `<a href="${h.link}" target="_blank" style="color: var(--primary); text-decoration: none">${h.desc}</a>` : h.desc;
 
             html += `<li>${fechaStr}${descStr}${statsStr}</li>`;
