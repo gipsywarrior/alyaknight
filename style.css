@@ -5,12 +5,12 @@
 */
 @font-face {
     font-family: 'OldNewspaperTypes';
-    src: url('OldNewspaperTypes.ttf') format('truetype');
+    src: url('fonts/OldNewspaperTypes.ttf') format('truetype');
 }
 
 @font-face {
     font-family: 'Old English Text MT';
-    src: url('OldEnglishTextMT.ttf') format('truetype');
+    src: url('fonts/oldenglishtextmt.ttf') format('truetype');
 }
 
 /* Variables de color de absolutos solicitadas */
@@ -41,7 +41,7 @@ body {
     box-sizing: border-box; /* Asegura que los 730px incluyan el padding */
     display: flex;
     flex-direction: column;
-    gap: 40px; /* Separación entre el primer, segundo y tercer elemento general */
+    gap: 30px; /* Separación entre el primer, segundo y tercer elemento general */
     box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.9); /* Sombra para darle un aspecto premium al marco */
 }
 
@@ -55,36 +55,28 @@ body {
 
 .header-box h1 {
     font-family: 'Old English Text MT', serif;
-    font-size: 4.5rem;
+    font-size: 110px;
     margin: 0;
     line-height: 1;
     font-weight: normal;
 }
 
 .header-box h2 {
-    font-size: 1.8rem;
+    font-size: 29px;
     margin: 10px 0 0 0;
-    text-transform: uppercase;
-    letter-spacing: 0.3em;
     font-weight: normal;
 }
 
-/* ==== Segundo Elemento (Espacio para imagen principal) ==== */
-.image-placeholder {
-    background-color: #1a1a1a; /* Gris muy oscuro para diferenciar el slot */
-    border: 1px dashed #444; /* Borde guíado */
+/* ==== Segundo Elemento (Contenedor de imagen principal) ==== */
+.main-image-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #888;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    font-size: 0.9rem;
 }
 
-.main-image {
-    width: 100%;
-    height: 350px; /* Altura sugerida temporal para la imagen grande */
+.main-image-container img {
+    max-width: 100%; /* Evita que crezca más allá del tamaño de la caja si la imagen es gigante */
+    height: auto; /* Mantiene la proporción original */
 }
 
 /* ==== Tercer Elemento (Flex horizontal) ==== */
@@ -103,7 +95,7 @@ body {
 
 /* -- Columna Izquierda -- */
 .left-column {
-    font-size: 1.05rem;
+    font-size: 15px;
     line-height: 1.6;
     text-align: justify;
 }
@@ -137,33 +129,34 @@ body {
     flex-direction: row;
     align-items: flex-end; /* Alinea los textos en la base (base-line) para mayor prolijidad */
     width: 100%;
+    border-bottom: 1px solid white;
+    padding-bottom: 3px;
 }
 
 .kv-item .key {
     white-space: nowrap; /* Ancho determinado por la palabra de la clave */
     text-transform: uppercase;
     letter-spacing: 1px;
-    font-size: 0.95rem;
-}
-
-/* Decoración opcional para enlazar clave y valor al estilo diseño visual estricto */
-.kv-item .line-filler {
-    flex-grow: 1;
-    border-bottom: 1px solid #444; /* Línea separadora sutil que mejora la lectura */
-    margin: 0 10px 5px 10px;
+    font-size: 15px;
 }
 
 .kv-item .value {
+    flex-grow: 1; /* Ocupa el ancho restante para empujarse a sí mismo a la derecha */
     text-align: right;
-    font-style: italic;
-    font-size: 1.1rem;
+    font-size: 18px;
 }
 
 /* Elemento Derecha 2: Imagen Secundaria */
-.secondary-image {
-    width: 100%;
-    height: 180px; /* Modifica este alto según la imagen final */
-    margin: 20px 0; /* Separación natural interior en caso space-between falle por contenido muy corto en la izq */
+.secondary-image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0; /* Separación natural */
+}
+
+.secondary-image-container img {
+    max-width: 100%;
+    height: auto;
 }
 
 /* Elemento Derecha 3: Caja flex 4 items con bullets */
@@ -173,13 +166,13 @@ body {
     justify-content: space-between;
     align-items: center;
     text-transform: uppercase;
-    font-size: 0.85rem;
+    font-size: 14px;
     letter-spacing: 1.5px;
-    padding-top: 10px;
-    border-top: 1px solid #333; /* Línea estética superior opcional */
+    padding: 10px 0;
+    border-block: 1px solid white;
 }
 
 .attributes-box .bullet {
-    color: #666; /* Bullet oscuro visible pero no protagonista */
-    font-size: 1.2rem;
+    color: white; /* Bullet oscuro visible pero no protagonista */
+    font-size: 19px;
 }
