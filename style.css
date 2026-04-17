@@ -24,9 +24,13 @@
     --base: #000000;
 }
 
+::selection {
+    background: rgb(65, 65, 65)
+}
+
 body {
     /* Fondo ligeramente gris oscuro para que la caja principal de negro absoluto pueda resaltar */
-    background-color: #111111; 
+    background-color: #101116;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -38,23 +42,61 @@ body {
     font-family: 'OldNewspaperTypes', serif;
 }
 
+img {pointer-events: none}
+img::selection {background: transparent}
+
 /* Caja principal */
 .main-container {
     background-color: var(--base);
+    border: 1px solid rgb(43, 43, 43);
     width: 730px;
     padding: 50px;
-    box-sizing: border-box; /* Asegura que los 730px incluyan el padding */
+    box-sizing: border-box;
+    /* Asegura que los 730px incluyan el padding */
     display: flex;
     flex-direction: column;
-    gap: 30px; /* Separación entre el primer, segundo y tercer elemento general */
-    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.9); /* Sombra para darle un aspecto premium al marco */
+    gap: 30px;
+    /* Separación entre el primer, segundo y tercer elemento general */
+    /* Sombra para darle un aspecto premium al marco */
+    position: relative;
+    mix-blend-mode: luminosity;
+}
+
+.main-container::before {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url('/images/grain.gif');
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    opacity: 0.04;
+    pointer-events: none;
+}
+
+.main-container::after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url(/images/dust.jpg);
+    z-index: 4;
+    top: 0;
+    left: 0;
+    opacity: 0.4;
+    mix-blend-mode: lighten;
+    pointer-events: none
 }
 
 /* ==== Primer Elemento (Box con columnar flex) ==== */
 .header-box {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centrado para un look de periódico antiguo o ficha elegante */
+    align-items: center;
+    /* Centrado para un look de periódico antiguo o ficha elegante */
     text-align: center;
 }
 
@@ -64,6 +106,22 @@ body {
     margin: 0;
     line-height: 1;
     font-weight: normal;
+    position: relative;
+}
+
+.header-box h1::before {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 110%;
+    background: url(/images/rust.jpg);
+    z-index: 2;
+    top: 0;
+    left: 0;
+    opacity: 1;
+    pointer-events: none;
+    mix-blend-mode: darken
 }
 
 .header-box h2 {
@@ -81,14 +139,15 @@ body {
 
 .image-wrapper {
     position: relative;
-    display: inline-block; /* Esto hace que el wrapper tenga exactamente el mismo tamaño que "mirror.png" */
+    display: inline-block;
+    /* Esto hace que el wrapper tenga exactamente el mismo tamaño que "mirror.png" */
 }
 
 .bunny-overlay {
     position: absolute;
     bottom: -20px;
     left: -100px;
-    z-index: 10;
+    z-index: 3;
     mix-blend-mode: lighten;
 }
 
@@ -96,12 +155,15 @@ body {
 .content-box {
     display: flex;
     flex-direction: row;
-    gap: 40px; /* Separación entre la columna izquierda y derecha */
-    align-items: stretch; /* Ambas columnas toman la misma altura (determinada por la más alta, la izquierda) */
+    gap: 40px;
+    /* Separación entre la columna izquierda y derecha */
+    align-items: stretch;
+    /* Ambas columnas toman la misma altura (determinada por la más alta, la izquierda) */
 }
 
 /* Configuración general de las dos columnas divididas en ancho equitativo */
-.left-column, .right-column {
+.left-column,
+.right-column {
     flex: 1 1 50%;
     width: 50%;
 }
@@ -127,7 +189,7 @@ body {
     display: flex;
     flex-direction: column;
     /* Distribuye elementos según el alto de la caja, desde arriba hacia abajo */
-    justify-content: space-between; 
+    justify-content: space-between;
 }
 
 /* Elemento Derecha 1: Caja Clave Valor */
@@ -140,21 +202,24 @@ body {
 .kv-item {
     display: flex;
     flex-direction: row;
-    align-items: flex-end; /* Alinea los textos en la base (base-line) para mayor prolijidad */
+    align-items: flex-end;
+    /* Alinea los textos en la base (base-line) para mayor prolijidad */
     width: 100%;
     border-bottom: 1px solid var(--primary);
     padding-bottom: 3px;
 }
 
 .kv-item .key {
-    white-space: nowrap; /* Ancho determinado por la palabra de la clave */
+    white-space: nowrap;
+    /* Ancho determinado por la palabra de la clave */
     text-transform: uppercase;
     letter-spacing: 1px;
     font-size: 15px;
 }
 
 .kv-item .value {
-    flex-grow: 1; /* Ocupa el ancho restante para empujarse a sí mismo a la derecha */
+    flex-grow: 1;
+    /* Ocupa el ancho restante para empujarse a sí mismo a la derecha */
     text-align: right;
     font-size: 18px;
 }
@@ -164,7 +229,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 20px 0; /* Separación natural */
+    margin: 20px 0;
+    /* Separación natural */
 }
 
 /* Elemento Derecha 3: Caja flex 4 items con bullets */
@@ -181,7 +247,8 @@ body {
 }
 
 .attributes-box .bullet {
-    color: var(--primary); /* Bullet oscuro visible pero no protagonista */
+    color: var(--primary);
+    /* Bullet oscuro visible pero no protagonista */
     font-size: 19px;
 }
 
@@ -237,7 +304,8 @@ body {
 .rasgos-container {
     display: flex;
     flex-direction: row;
-    align-items: flex-end; /* Alineados hacia la parte de abajo */
+    align-items: flex-end;
+    /* Alineados hacia la parte de abajo */
     justify-content: space-around;
 }
 
@@ -286,7 +354,7 @@ body {
 /* ==== Estilos Globales de Scrollbar ==== */
 /* Chrome, Edge, Safari */
 ::-webkit-scrollbar {
-    width: 0px!important;
+    width: 0px !important;
 }
 
 ::-webkit-scrollbar-track {
@@ -299,6 +367,7 @@ body {
 
 /* Firefox */
 * {
-    scrollbar-width: thin; /* Firefox no soporta px exactos, 'thin' es lo más cercado y nativo */
+    scrollbar-width: thin;
+    /* Firefox no soporta px exactos, 'thin' es lo más cercado y nativo */
     scrollbar-color: var(--primary) transparent;
 }
