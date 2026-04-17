@@ -88,6 +88,10 @@ img::selection {background: transparent}
     pointer-events: none
 }
 
+.main-container {
+    filter: brightness(0.9) sepia(2);
+}
+
 .header-box {
     display: flex;
     flex-direction: column;
