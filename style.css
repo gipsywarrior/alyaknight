@@ -19,7 +19,7 @@
 }
 
 :root {
-    --primary: #ffffff;
+    --primary: #9fa4c2;
     --base: #0a0c14;
 }
 
@@ -28,7 +28,6 @@
 }
 
 body {
-    background-color: #9195ab;
     color: var(--primary);
     font-family: 'OldNewspaperTypes', serif;
     margin: 0
@@ -61,7 +60,6 @@ img::selection {
     gap: 30px;
 
     position: relative;
-    mix-blend-mode: darken;
 }
 
 .main-container::before {
