@@ -20,7 +20,7 @@
 
 :root {
     --primary: #9fa4c2;
-    --base: #0a0c14;
+    --base: #10162b;
 }
 
 ::selection {
@@ -54,12 +54,11 @@ img::selection {
     width: 730px;
     padding: 50px;
     box-sizing: border-box;
-
     display: flex;
     flex-direction: column;
     gap: 30px;
-
     position: relative;
+    filter: saturate(0.6);
 }
 
 .main-container::before {
@@ -86,7 +85,7 @@ img::selection {
     z-index: 4;
     top: 0;
     left: 0;
-    opacity: 0.4;
+    opacity: 0.12;
     mix-blend-mode: lighten;
     pointer-events: none
 }
