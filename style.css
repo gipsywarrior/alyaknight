@@ -28,17 +28,10 @@
 }
 
 body {
-
     background-color: #101116;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    margin: 0;
-    padding: 40px 20px;
-
     color: var(--primary);
     font-family: 'OldNewspaperTypes', serif;
+    margin: 0
 }
 
 img {
@@ -91,10 +84,6 @@ img::selection {
     opacity: 0.4;
     mix-blend-mode: lighten;
     pointer-events: none
-}
-
-.main-container {
-    filter: brightness(0.9) sepia(2);
 }
 
 .header-box {
