@@ -179,21 +179,19 @@ img::selection {background: transparent}
 .right-column {
     display: flex;
     flex-direction: column;
-
     justify-content: space-between;
 }
 
 .key-value-box {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 13px;
 }
 
 .kv-item {
     display: flex;
     flex-direction: row;
     align-items: flex-end;
-
     width: 100%;
     border-bottom: 1px solid var(--primary);
     padding-bottom: 3px;
@@ -201,7 +199,6 @@ img::selection {background: transparent}
 
 .kv-item .key {
     white-space: nowrap;
-
     text-transform: uppercase;
     letter-spacing: 1px;
     font-size: 15px;
@@ -209,9 +206,8 @@ img::selection {background: transparent}
 
 .kv-item .value {
     flex-grow: 1;
-
     text-align: right;
-    font-size: 18px;
+    font-size: 17px;
 }
 
 .secondary-image-container {
