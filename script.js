@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
 function renderDynamicData(data) {
     if(data.Info) {
         const d = data.Info;
-        
+
         const setVal = (id, text) => {
             let el = document.getElementById(id);
             if(el) el.innerText = text;
@@ -46,11 +46,11 @@ function renderDynamicData(data) {
         setVal('val-pm', `${d.PM} PM`);
         setVal('val-vel', `${d.VEL} VEL`);
         setVal('val-vol', `${d.VOL} VOL`);
-        
+
         setVal('val-exp', `${d.ExpGanado} / ${d.ExpGastado} / ${d.ExpActual}`);
         setVal('val-galeones', `${d.GalGanado} / ${d.GalGastado} / ${d.GalActual}`);
         setVal('val-llaves', `${d.LlaGanado} / ${d.LlaGastado} / ${d.LlaActual}`);
-        
+
         setVal('val-conocimiento', d.Conocimiento);
     }
 
@@ -62,15 +62,15 @@ function renderDynamicData(data) {
             if(h.galeones !== 0) eParts.push(`${h.galeones > 0 ? '+'+h.galeones : h.galeones} ${Math.abs(h.galeones) === 1 ? 'Galeón' : 'Galeones'}`);
             if(h.conocimiento !== 0) eParts.push(`${h.conocimiento > 0 ? '+'+h.conocimiento : h.conocimiento} CO`);
             if(h.llaves !== 0) eParts.push(`${h.llaves > 0 ? '+'+h.llaves : h.llaves} ${Math.abs(h.llaves) === 1 ? 'Llave' : 'Llaves'}`);
-            
+
             let statsStr = eParts.length > 0 ? ` (${eParts.join(', ')})` : '';
             let fechaStr = h.fecha ? h.fecha + '. ' : '';
             let descStr = h.link ? `<a href="${h.link}" target="_blank" style="color: var(--primary); text-decoration: none">${h.desc}</a>` : h.desc;
-            
+
             html += `<li>${fechaStr}${descStr}${statsStr}</li>`;
         });
         html += "</ul>";
-        
+
         const historialDiv = document.getElementById('historial');
         if(historialDiv) historialDiv.innerHTML = html;
     }
