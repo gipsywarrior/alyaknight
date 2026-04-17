@@ -278,7 +278,7 @@ img::selection {
     height: 230px;
     overflow-y: auto;
     overflow-x: hidden;
-    padding-top: 10px
+    padding-top: 10px;
 }
 
 .tab-content.active {
@@ -321,6 +321,7 @@ img::selection {
 
 .capacidades-subtitle {
     margin: 10px 0 5px 0;
+    font-weight: bold;
 }
 
 .capacidades-list {
@@ -335,21 +336,9 @@ img::selection {
 }
 
 ::-webkit-scrollbar {
-    width: 0px !important;
+    display: none
 }
 
-::-webkit-scrollbar-track {
-    background: transparent;
-}
-
-::-webkit-scrollbar-thumb {
-    background: var(--primary);
-}
-
-* {
-    scrollbar-width: thin;
-    scrollbar-color: var(--primary) transparent;
-}
 
 @keyframes fadeInUp {
     0% {
